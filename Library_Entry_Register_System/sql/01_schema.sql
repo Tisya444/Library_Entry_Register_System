@@ -1,8 +1,7 @@
 /* =========================================================
    LIBRARY ENTRY REGISTER SYSTEM
-   File 1 of 5 : Database and Tables
-   Based on the final ER Diagram
-   ========================================================= */
+  
+  ========================================================= */
 
 DROP DATABASE IF EXISTS library_entry_register;
 CREATE DATABASE library_entry_register;
