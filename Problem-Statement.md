@@ -12,7 +12,7 @@
 
 ## 2. Database Design
 
-Based on the identified requirements and queries, a relational database needs to be designed to store and manage information about students, books, sections, library visits, book transactions, accession records, and other relevant entities.
+Based on the identified requirements and queries, a relational database needs to be designed to store and manage information about students, library visits, book transactions, library sections, and fines.
 
 ### Requirements and Corresponding Tables
 
@@ -23,9 +23,9 @@ Based on the identified requirements and queries, a relational database needs to
 | Free-period usage | Library_Visit, Student |
 | Frequent visitors | Library_Visit, Student |
 | Visit purpose | Library_Visit |
-| Most demanded books in each section | Book_Transaction, Accession_Register, Section |
+| Most demanded books in each section | Book_Transaction, Section |
 | Students who spend maximum time in the library | Student, Library_Visit |
-| Book and accession records | Accession_Register, Book |
+| Book issue and return records | Book_Transaction, Student |
 | Fine management | Fine, Book_Transaction, Student |
 
 The database should define appropriate tables, attributes, primary keys, foreign keys, relationships, and constraints.
@@ -36,11 +36,18 @@ The main tables proposed for the system are:
 
 - Student
 - Library_Visit
-- Book
 - Book_Transaction
-- Accession_Register
 - Section
 - Fine
+
+### Relationships
+
+| Relationship | Entities | Cardinality |
+|---|---|---|
+| Makes | Student – Library_Visit | 1 : N |
+| Performs | Student – Book_Transaction | 1 : N |
+| Belongs_To | Book_Transaction – Section | N : 1 |
+| Generates | Book_Transaction – Fine | 1 : N |
 
 ## 3. User-specific Views
 
@@ -48,8 +55,8 @@ The system should provide appropriate database views for different types of user
 
 ## 4. Triggers, Procedures and Functions
 
-The system should use triggers, stored procedures, and functions to handle important database operations and automatic updates. These may include updating book availability after issue or return, calculating fines, maintaining visit records, tracking library usage, and ensuring data consistency during updates.
+The system should use triggers, stored procedures, and functions to handle important database operations and automatic updates. These may include updating book status after issue or return, calculating fines, maintaining visit records, tracking library usage, and ensuring data consistency during updates.
 
 ## Overall Objective
 
-The overall objective is to develop a Library Management System that can efficiently manage library data, support resource planning and utilization, provide role-specific information, and automate important database operations.
+The overall objective is to develop a Library Entry Register System that can efficiently manage library data, support resource planning and utilization, provide role-specific information, and automate important database operations.
