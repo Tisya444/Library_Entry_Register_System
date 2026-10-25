@@ -318,33 +318,4 @@ END $$
 DELIMITER ;
 
 
-/* =========================================================
-   PART D: HOW TO TEST (run these one by one)
-   =========================================================
 
--- Issue ACC003 to student 104 on 2026-09-15 (due 2026-09-22)
-CALL sp_issue_book(104, 'ACC003', 2, '2026-09-15');
-
--- Try to issue the same copy again -> error from trigger T1
-CALL sp_issue_book(105, 'ACC003', 2, '2026-09-16');
-
--- Return it 3 days late -> trigger T3 creates a Rs 30 fine
-CALL sp_return_book(1009, '2026-09-25');
-SELECT * FROM Fine WHERE Transaction_ID = 1009;
-
--- Pay that fine -> trigger T5 fills today's date
-CALL sp_pay_fine(7);
-
--- Entry and exit of a student
-CALL sp_record_entry(102, '2026-09-15', '10:00:00', 'Reading', 1);
-CALL sp_record_exit(11, '11:30:00');
-
--- Mark overdue books and see one student's report
-CALL sp_mark_overdue();
-CALL sp_student_report(101);
-
--- Functions
-SELECT fn_calculate_fine('2026-09-01', '2026-09-05');   -- 40.00
-SELECT fn_is_copy_available('ACC004');                  -- 0 (not returned)
-
-*/
