@@ -1,20 +1,10 @@
 /* =========================================================
    LIBRARY ENTRY REGISTER SYSTEM
-   File 4 of 5 : User-specific Views
-   Student   -> own borrowing, fines and visits (no other student's
-                email/phone is exposed)
-   Librarian -> day-to-day issue, overdue and visit information
-   Admin     -> summary reports for planning
+  
    ========================================================= */
 
 USE library_entry_register;
 
-
-/* =========================================================
-   STUDENT VIEWS
-   Application filters by the logged-in student:
-   SELECT * FROM vw_student_books WHERE Student_ID = 101;
-   ========================================================= */
 
 /* My borrowed books */
 
