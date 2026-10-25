@@ -159,24 +159,6 @@ FROM Fine
 GROUP BY Payment_Status;
 
 
-/* =========================================================
-   OPTIONAL: Access control with roles (MySQL 8+ / MariaDB)
-   Remove the comment marks to run. Needs admin privileges.
-   =========================================================
 
-CREATE ROLE IF NOT EXISTS student_role, librarian_role, admin_role;
-
-GRANT SELECT ON library_entry_register.vw_student_books  TO student_role;
-GRANT SELECT ON library_entry_register.vw_student_fines  TO student_role;
-GRANT SELECT ON library_entry_register.vw_student_visits TO student_role;
-
-GRANT SELECT ON library_entry_register.vw_librarian_books_out      TO librarian_role;
-GRANT SELECT ON library_entry_register.vw_librarian_unpaid_fines   TO librarian_role;
-GRANT SELECT ON library_entry_register.vw_librarian_visit_register TO librarian_role;
-GRANT SELECT, INSERT, UPDATE ON library_entry_register.Book_Transaction TO librarian_role;
-GRANT SELECT, INSERT, UPDATE ON library_entry_register.Library_Visit    TO librarian_role;
-GRANT SELECT, INSERT, UPDATE ON library_entry_register.Fine             TO librarian_role;
-
-GRANT ALL PRIVILEGES ON library_entry_register.* TO admin_role;
 
 */
