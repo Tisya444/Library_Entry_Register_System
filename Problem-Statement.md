@@ -1,4 +1,4 @@
-# Library Management System
+# Library Entry Register System
 
 ## 1. Resource Planning & Utilization Queries
 
